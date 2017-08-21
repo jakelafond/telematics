@@ -25,13 +25,15 @@ namespace Telematics
         public void deJson(VehicleInfo vehicleInfo)
         {
             string[] files = System.IO.Directory.GetFiles("/Users/jacoblafond/dotnet/telematics", "*.json");
-            ///add stuff to a list here so can print them out in html pages eventually
+            ///add stuff to a list here
+            List<object> vehicleList = new List<object>();
             foreach (var item in files)
             {
                 using (StreamReader file = File.OpenText(item))
                 {
                     var vehicleInfo2 = JsonConvert.DeserializeObject<VehicleInfo>(file.ReadToEnd());
-                    Console.WriteLine(vehicleInfo2.VIN);
+                    vehicleList.Add(vehicleInfo2);
+                    Console.WriteLine(vehicleList);
                 }
             }
         }
