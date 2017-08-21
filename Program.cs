@@ -27,7 +27,8 @@ namespace Telematics
             Console.WriteLine($"{newVehicle}");
 
             new TelematicsService().Report(newVehicle);
-            new TelematicsService().deJson(newVehicle);
+            new TelematicsService().GenerateHTMLReport(newVehicle);
+
         }
     }
 }
